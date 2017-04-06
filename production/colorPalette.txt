@@ -1,0 +1,14 @@
+[
+// DA Primary Colors
+'#008b94', // Teal				index:0
+'#B5BF35', // Acid Green				index:1
+'#EFEFF0', // Cool Gray 1				index:2
+'#78777A', // Cool Gray 9				index:3
+'#000018', // Black 6				index:4
+// DA Accent Colors
+'#D5215E', // Rubine Red				index:5
+'#8E1E3A', // Burgandy				index:6
+'#94388D', // Light Purple				index:7
+'#F8971D', // Orange				index:8
+'#F7EC00', // Yellow				index:9
+]

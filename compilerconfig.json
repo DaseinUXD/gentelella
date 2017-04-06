@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "vendors/bootstrap/less/variables.css",
+    "inputFile": "vendors/bootstrap/less/variables.less"
+  },
+  {
+    "outputFile": "vendors/bootstrap/less/bootstrap.css",
+    "inputFile": "vendors/bootstrap/less/bootstrap.less"
+  }
+]
