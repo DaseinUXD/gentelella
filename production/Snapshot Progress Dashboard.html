@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,7 +21,7 @@
 
 	<!-- Custom Theme Style -->
 	<link href="../build/css/custom.min.css" rel="stylesheet">
-    
+
 </head>
 
 <body class="nav-md">
@@ -274,7 +274,7 @@
 
 
 				<div class="row">
-                    <h1>Hello World</h1>
+
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
@@ -288,7 +288,7 @@
 					<div class="col-md-6 col-sm-12 col-xs-12">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
-								<h1 class="panel-title">SnapShot Results</h1>
+								<h1 class="panel-title">SnapShot Breakdown</h1>
 							</div>
 							<div class="panel-body">
 								<div id="echart_SnapShotPie" style="height:400px;"></div>
@@ -297,100 +297,32 @@
 					</div>
 
 				</div>
-
-
-
-
-
-
-
-
 				<div class="row">
-					<div class="col-md-12">
-						<div class="x_panel">
-							<div class="x_title">
-								<h2>SnapShot Profile Progress </h2>
-								<ul class="nav navbar-right panel_toolbox">
-									<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-										<ul class="dropdown-menu" role="menu">
-											<li><a href="#">Settings 1</a>
-											</li>
-											<li><a href="#">Settings 2</a>
-											</li>
-										</ul>
-									</li>
-									<li><a class="close-link"><i class="fa fa-close"></i></a>
-									</li>
-								</ul>
-								<div class="clearfix"></div>
+					<div class="col-md-6 col-sm-12 col-xs-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h1 class="panel-title">SnapShot Details </h1>
 							</div>
-							<div class="x_content">
+							<div class="panel-body">
 
-								<div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
+										<div id="echart_SnapShotDetailPie" style="height:400px;"></div>
 
-								</div>
-								<div class="col-md-6">
-									<div class="progress">
-										<div class="progress-bar progress-bar-danger" data-transitiongoal="100"></div>
-
-									</div>
-									<p>Total number of profiles</p>
-									<div class="progress">
-										<div class="progress-bar progress-bar-warning" data-transitiongoal="80"></div>
-
-									</div>
-									<p>Number of profiles eligible for append</p>
-									<div class="progress">
-										<div class="progress-bar progress-bar-info" data-transitiongoal="65"></div>
-
-									</div>
-									<p>Number of submitted for append</p>
-
-									<div class="progress">
-										<div class="progress-bar progress-bar-info" data-transitiongoal="65"></div>
-
-									</div>
-									<p>Number of profiles successfully appended</p>
-								</div>
-
-								<div class="col-md-6">
-									<div class="row" style="text-align: center;">
-										<div class="col-md-6">
-											<canvas id="canvas1i" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
-											<h4 style="margin:0">Profiles with Social Data</h4>
-										</div>
-										<div class="col-md-6">
-											<canvas id="canvas1i2" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
-											<h4 style="margin:0">Profiles with Demographic Data</h4>
-										</div>
-
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-
-
-
 		</div>
-	</div>
-	<!-- /page content -->
+		<!-- /page content -->
 
-	<!-- footer content -->
-	<footer>
-		<div class="pull-right">
-			Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-		</div>
-		<div class="clearfix"></div>
-	</footer>
-	<!-- /footer content -->
+		<!-- footer content -->
+		<footer>
+			<div class="pull-right">
+				Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+			</div>
+			<div class="clearfix"></div>
+		</footer>
+		<!-- /footer content -->
 	</div>
 	</div>
 
@@ -548,7 +480,7 @@
 	<!-- /Doughnut Chart -->
 
 
-	<!--echarts funnel chart -->
+	<!--echarts funnel & pie chart -->
 	<script>
 		//echart Funnel
 		var colorPalette = [
@@ -575,6 +507,22 @@
 			'#B5BF35', // Acid Green	index:1
 			'#F8971D', // Orange			index:8
 			'#D5215E' // Rubine Red	index:5
+		];
+
+		var detailPieColors = [
+			// DA Primary Colors
+			'#008b94', // Teal				print
+			'#aeaeb7', // Cool Gray 1	hide
+			'#B5BF35', // Acid Green	print
+			'#78777A', // Cool Gray 9	hide
+			'#F8971D', // Orange			print
+			'#000018', // Black 6			hide
+			// DA Accent Colors
+			'#D5215E', // Rubine Red	print
+			'#8E1E3A', // Burgandy		hide
+			'#94388D', // LightPurple print
+			'#F8971D', // Orange			hide
+			'#F7EC00' // Yellow			print
 		];
 		var toolboxOptions = {
 			color: colorPalette,
@@ -836,6 +784,107 @@
 		var echartSnapShotPie = echarts.init(document.getElementById('echart_SnapShotPie'), theme);
 		echartSnapShotPie.setOption(optionPie);
 		echartSnapShotFunnel.setOption(optionFunnel);
+
+		var dataStyle = {
+			normal: {
+				label: {
+					show: false
+				},
+				labelLine: {
+					show: false
+				}
+			}
+		};
+
+		var placeHolderStyle = {
+			normal: {
+				color: 'rgba(0,0,0,0)',
+				label: {
+					show: false
+				},
+				labelLine: {
+					show: false
+				}
+			},
+			emphasis: {
+				color: 'rgba(0,0,0,0)'
+			}
+		};
+		var detaiPieOption = {
+			color: detailPieColors,
+			title: {
+				text: 'Guest Profiles',
+				subtext: 'Matched in SnapShot',
+				x: 'center',
+				y: 'center',
+				width: '90%',
+				itemGap: 10,
+				textStyle: {
+					color: colorPalette[0],
+					fontFamily: 'sans-serif',
+					fontSize: 20,
+					fontWeight: 'normal'
+				}
+			},
+			tooltip: {
+				show: true,
+				formatter: "{a} <br/>{b} : {c}"
+			},
+			legend: {
+				orient: 'horizontal',
+				left: 'center',
+				top: 'bottom',
+				itemGap: 12,
+				data: ['Social Data', 'Demographic Data', 'Not Found'],
+			},
+			toolbox: toolboxOptions,
+			series: [{
+				name: 'Profiles with',
+				type: 'pie',
+				clockWise: false,
+				radius: [105, 130],
+				itemStyle: dataStyle,
+				data: [{
+					value: 68,
+					name: 'Social Data'
+				}, {
+					value: 32,
+					name: 'invisible',
+					itemStyle: placeHolderStyle
+				}]
+			}, {
+				name: 'Profiles with',
+				type: 'pie',
+				clockWise: false,
+				radius: [80, 105],
+				itemStyle: dataStyle,
+				data: [{
+					value: 29,
+					name: 'Demographic Data'
+				}, {
+					value: 71,
+					name: 'invisible',
+					itemStyle: placeHolderStyle
+				}]
+			}, {
+				name: 'Profile Data',
+				type: 'pie',
+				clockWise: false,
+				radius: [25, 80],
+				itemStyle: dataStyle,
+				data: [{
+					value: 3,
+					name: 'Not Found'
+				}, {
+					value: 73,
+					name: 'invisible',
+					itemStyle: placeHolderStyle
+				}]
+			}]
+		};
+		var echartSnapShotDetailPie = echarts.init(document.getElementById('echart_SnapShotDetailPie'), theme);
+
+		echartSnapShotDetailPie.setOption(detaiPieOption);
 
 	</script>
 </body>
